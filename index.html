@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="RadSplat: Radiance Field-Informed Gaussian Splatting for Robust Real-Time Rendering with 900+ FPS.">
+  <meta name="keywords" content="RadSplat">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RadSplat: Radiance Field-Informed Gaussian Splatting for Robust Real-Time Rendering with 900+ FPS</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+
+  <!-- Image Comparison Slider -->
+  <!-- https://github.com/sneas/img-comparison-slider -->
+  <script defer src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css" />
+
+
+  <link rel="icon" href="./static/images/favicon.ico">
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">
+            <span style="font-weight: 1000;">RadSplat:</span>
+            <span>Radiance Field-Informed Gaussian Splatting for Robust Real-Time Rendering with 900+ FPS</span>
+          </h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://m-niemeyer.github.io/" target="_blank">Michael Niemeyer</a>,</span>
+            <span class="author-block">
+              <a href="https://campar.in.tum.de/Main/FabianManhardt" target="_blank">Fabian Manhardt</a>,</span>
+            <span class="author-block">
+              <a href="http://www.lix.polytechnique.fr/Labo/Marie-Julie.RAKOTOSAONA/" target="_blank">Marie-Julie Rakotosaona</a>,
+            </span>
+            <span class="author-block">
+              <a href="https://moechsle.github.io" target="_blank">Michael Oechsle</a>,
+            </span>            <span class="author-block">
+              <a href="http://www.stronglyconvex.com/" target="_blank">Daniel Duckworth</a>,
+            </span>            <span class="author-block">
+              <a href="https://arvr.google.com/" target="_blank">Rama Gosula</a>,
+            </span>            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=ml3laqEAAAAJ&hl=ja" target="_blank">Keisuke Tateno</a>,
+            </span>
+            </span>            <span class="author-block">
+              <a href="https://arvr.google.com/" target="_blank">John Bates</a>,
+            </span>            <span class="author-block">
+              <a href="https://scholar.google.com/citations?user=DQ4838YAAAAJ&hl=en" target="_blank">Dominik Kaeser</a>,
+          </span>            <span class="author-block">
+            <a href="https://federicotombari.github.io/" target="_blank">Federico Tombari</a>
+          </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">Google</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://m-niemeyer.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://m-niemeyer.github.io/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <video id="teaser" autoplay muted loop playsinline controls height="100%">
+        <source src="./static/videos/teaser_vid.mp4"
+                type="video/mp4">
+      </video>
+      <h2 class="subtitle has-text-centered">
+        RadSplat enables high-quality real-time rendering of complex large-scale scenes at 900+ FPS.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Recent advances in view synthesis and real-time rendering have achieved photorealistic quality at impressive rendering speeds. While Radiance Field-based methods achieve state-of-the-art quality in challenging scenarios such as in-the-wild captures and large-scale scenes, they often suffer from excessively high compute requirements linked to volumetric rendering. Gaussian Splatting-based methods, on the other hand, rely on rasterization and naturally achieve real-time rendering but suffer from brittle optimization heuristics that underperform on more challenging scenes. In this work, we present RadSplat, a lightweight method for robust real-time rendering of complex scenes. Our main contributions are threefold. First, we use radiance fields as a prior and supervision signal for optimizing point-based scene representations, leading to improved quality and more robust optimization. Next, we develop a novel pruning technique reducing the overall point count while maintaining high quality, leading to smaller and more compact scene representations with faster inference speeds. Finally, we propose a novel test-time filtering approach that further accelerates rendering and allows to scale to larger, house-sized scenes. We find that our method enables state-of-the-art synthesis of complex captures at 900+ FPS.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Method Overview</h2>
+    <div class="is-centered has-text-centered"><img src="static/images/method_all2.svg" alt="SVG mit img laden" width="80%"></div>
+    <p style="padding-top: 0.5rem; padding-bottom: 0.5rem;">
+      Our method consists of three main steps:
+      <ol style="padding-left: 1.5rem;">
+      <li>We first optimize a neural radiance field that acts as a <span class="text-bold">robust prior and stable source of supervision</span>. </li>
+      <li>We use the trained NeRF model as <span class="text-bold">initialization of a point-based Gaussian Splatting representation</span> and optimize it with <span class="text-bold">stable NeRF supervision</span>. A novel pruning technique enables more <span class="text-bold">compact scene representations</span> that can be rendered at high FPS.</li>
+      <li>As post-processing, we perform visibility filtering further <span class="text-bold">speeding up rendering up to 900+ FPS.</span> </li>
+      </ol>
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Trajectory Comparison on Large-Scale Scenes</h2>
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-4">Comparison to 3DGS</h2>
+          <p>
+            Our method is more robust on challenging captures than 3D Gaussian Splatting (3DGS) while rendering at higher FPS.
+          </p>
+          <video autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/nottingham_comparison_3dgs.mp4"
+                    type="video/mp4">
+          </video>
+          <video autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/westcombe_comparison_3dgs.mp4">
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <h2 class="title is-4">Comparison to ZipNeRF</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              Our method achieves similar view synthesis quality as ZipNeRF while rendering 3000x faster.
+            </p>
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/nottingham_comparison_zipnerf_v2.mp4"
+                      type="video/mp4">
+            </video>
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/westcombe_comparison_zipnerf_v2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">View Comparison on Unbounded Scenes</h2>
+    <div class="columns is-centered">
+      <div class="column">
+        <div class="content">
+          <h2 class="title is-4">Comparison to 3DGS</h2>
+          <p>
+            Our NeRF-based initialization and supervision leads to more stable and higher-quality view synthesis compared to 3DGS.
+          </p>
+          <img-comparison-slider style="width: 100%;" hover="hover" >
+          <span slot="first" class="img-container">
+            <img src="static/images/flowers/3dgs.jpg" width="100%">
+            <span class="bottom-left">3DGS</span>
+          </span>
+          <span slot="second" class="img-container">
+            <img src="static/images/flowers/ours.jpg" width="100%">
+            <span class="bottom-right">Ours</span>
+          </span>
+          </img-comparison-slider>
+          <img-comparison-slider style="width: 100%;" hover="hover" >
+          <span slot="first" class="img-container">
+            <img src="static/images/bicycle/3dgs.jpg" width="100%">
+            <span class="bottom-left">3DGS</span>
+          </span>
+          <span slot="second" class="img-container">
+            <img src="static/images/bicycle/ours.jpg" width="100%">
+            <span class="bottom-right">Ours</span>
+          </span>
+          </img-comparison-slider>
+          <img-comparison-slider style="width: 100%;" hover="hover" >
+          <span slot="first" class="img-container">
+            <img src="static/images/kitchen/3dgs.jpg" width="100%">
+            <span class="bottom-left">3DGS</span>
+          </span>
+          <span slot="second" class="img-container">
+            <img src="static/images/kitchen/ours.jpg" width="100%">
+            <span class="bottom-right">Ours</span>
+          </span>
+          </img-comparison-slider>
+          <img-comparison-slider style="width: 100%;" hover="hover" >
+          <span slot="first" class="img-container">
+            <img src="static/images/treehill/3dgs.jpg" width="100%">
+            <span class="bottom-left">3DGS</span>
+          </span>
+          <span slot="second" class="img-container">
+            <img src="static/images/treehill/ours.jpg" width="100%">
+            <span class="bottom-right">Ours</span>
+          </span>
+          </img-comparison-slider>
+        </div>
+      </div>
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <h2 class="title is-4">Comparison to ZipNeRF</h2>
+            <p>
+              We achieve higher SSIM and LPIPS than ZipNeRF on the Mip-NeRF360 benchmark while rendering 3000x faster.
+            </p>
+            <img-comparison-slider style="width: 100%;" hover="hover" >
+            <span slot="first" class="img-container">
+              <img src="static/images/flowers/zipnerf.jpg" width="100%">
+              <span class="bottom-left">ZipNeRF</span>
+            </span>
+            <span slot="second" class="img-container">
+              <img src="static/images/flowers/ours.jpg" width="100%">
+              <span class="bottom-right">Ours</span>
+            </span>
+            </img-comparison-slider>
+            <img-comparison-slider style="width: 100%;" hover="hover" >
+            <span slot="first" class="img-container">
+              <img src="static/images/bicycle/zipnerf.jpg" width="100%">
+              <span class="bottom-left">ZipNeRF</span>
+            </span>
+            <span slot="second" class="img-container">
+              <img src="static/images/bicycle/ours.jpg" width="100%">
+              <span class="bottom-right">Ours</span>
+            </span>
+            </img-comparison-slider>
+            <img-comparison-slider style="width: 100%;" hover="hover" >
+            <span slot="first" class="img-container">
+              <img src="static/images/kitchen/zipnerf.jpg" width="100%">
+              <span class="bottom-left">ZipNeRF</span>
+            </span>
+            <span slot="second" class="img-container">
+              <img src="static/images/kitchen/ours.jpg" width="100%">
+              <span class="bottom-right">Ours</span>
+            </span>
+            </img-comparison-slider>
+            <img-comparison-slider style="width: 100%;" hover="hover" >
+            <span slot="first" class="img-container">
+              <img src="static/images/treehill/zipnerf.jpg" width="100%">
+              <span class="bottom-left">ZipNeRF</span>
+            </span>
+            <span slot="second" class="img-container">
+              <img src="static/images/treehill/ours.jpg" width="100%">
+              <span class="bottom-right">Ours</span>
+            </span>
+            </img-comparison-slider>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Trajectory Comparison on Unbounded Scenes</h2>
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+      <div class="column">
+        <div class="content">
+          <video autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/bicycle.mp4"
+                    type="video/mp4">
+          </video>
+          <video autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/kitchenlego.mp4">
+                    type="video/mp4">
+          </video>
+        </div>
+      </div>
+      <!--/ Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column">
+        <div class="columns is-centered">
+          <div class="column content">
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/flowerbed.mp4"
+                      type="video/mp4">
+            </video>
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/fulllivingroom.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{niemeyer2024radsplat,
+  author    = {Niemeyer, Michael and Manhardt, Fabian and Rakotosaona, Marie-Julie and Oechsle, Michael and Duckworth, Daniel and Gosula, Rama and Tateno, Keisuke and Bates, John and Kaeser, Dominik and Tombari, Federico},
+  title     = {RadSplat: Radiance Field-Informed Gaussian Splatting for Robust Real-Time Rendering with 900+ FPS  },
+  journal   = {arXiv.org},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop content">
+    <h2 class="title">Acknowledgements</h2>
+    <p>
+      We would like to thank Georgios Kopanas, Peter Zhizhin,
+Peter Hedman, and Jon Barron for fruitful discussions and advice, Cengiz Oztireli
+for reviewing the draft, and Zhiwen Fan and Kevin Wang for sharing additional
+baseline results.
+The results we show above are from the  <a href="https://jonbarron.info/mipnerf360/" target="_blank">Mip-NeRF360</a> and the <a href="https://jonbarron.info/zipnerf/" target="_blank">ZipNeRF</a> dataset. 
+The website is built on top of the <a href="https://nerfies.github.io/" target="_blank">Nerfies template</a> and uses the <a href="https://github.com/sneas/img-comparison-slider" target="_blank">image slider</a>, and the zoom-in video comparison is inspired by <a href="https://binary-opacity-grid.github.io/" target="_blank">Binary Opacity Grids</a>.
+    </p>
+  </div>
+</section>
+
+</body>
+</html>
